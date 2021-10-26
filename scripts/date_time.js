@@ -16,7 +16,13 @@ function showTime() {
    time.textContent = currentTime;
 
    const options = {weekday: 'long', month: 'long', day: 'numeric'};
-   const currentDate = today.toLocaleDateString('en-US', options);
+  let currentDate;
+   if (pageOption.lang === 'RU'){
+     currentDate = today.toLocaleDateString('ru-RU', options);
+   }
+   else if (pageOption.lang === 'EN'){
+    currentDate = today.toLocaleDateString('en-US', options);
+   }
    // console.log(currentDate)
    date.textContent = currentDate;
    
