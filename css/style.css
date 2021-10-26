@@ -171,11 +171,11 @@ body {
   color: #000;
   opacity: 0.8;
 }
-.huge-player .play-list{
+/* .huge-player .play-list{
   border: 1px solid rgba(255, 183, 194, 1);
   border-radius: 8px;
   padding: 10px;
-}
+} */
 .huge-player button{
   opacity: 0.3;
   color: #C4C4C4;
@@ -758,6 +758,54 @@ input{
 .todo-icon:hover{
   opacity: 1;
 }
+.song-div{
+  opacity: 1;
+}
+
+
+.song-buttons{
+  display: none;
+}
+
+.huge-player .song-buttons{ 
+  display: block;
+  display: flex;
+  flex-flow: column;
+  margin-top: 5px;
+}
+.huge-player .song-div{ 
+  opacity: 1;
+  border: 1px solid rgb(255, 183, 194);
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-flow: row;
+}
+.mini-play {
+  margin-bottom: 10px;
+  width: 18px;
+  height: 18px;
+  background-size: 18px 18px;
+  background-image: url(../assets/svg/play.svg);
+  filter: invert(84%) sepia(13%) saturate(0%) hue-rotate(
+    266deg) brightness(89%) contrast(101%);
+  opacity: 0.3;
+  transition: 0.35s;
+  cursor: pointer;
+}
+.mini-play:hover{
+  opacity: 0.6;
+}
+
+.mini-pause {
+  background-image: url(../assets/svg/pause.svg);
+  width: 18px;
+  height: 18px;
+  background-size: 18px 18px;
+
+}
+
+
 @media (max-width: 768px) {
   .time {
     min-height: 80px;
