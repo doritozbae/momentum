@@ -50,10 +50,11 @@ const weathSet = document.querySelector('.set-weather');
 const playerSet = document.querySelector('.set-player');
 const nameApi = document.querySelector('.imAp');
 const tagSet = document.querySelector('.tagSet');
+const langSet = document.querySelector('.langSet');
 
 function setEN() {
    username.placeholder = '[Enter name]';
-   curCity.placeholder = '[Enter city]';
+   currentCity.placeholder = '[Enter city]';
    settingText.textContent = 'Settings';
    timeSet.textContent = 'Time';
    dateSet.textContent = 'Date';
@@ -63,6 +64,7 @@ function setEN() {
    nameApi.textContent = 'Image API';
    todoValue.placeholder = 'Tasks to do...';
    tagSet.textContent = 'Tags';
+   langSet.textContent = 'Language';
 }
 
 function setRU() {
@@ -77,4 +79,5 @@ function setRU() {
    nameApi.textContent = 'Выбор API';
    todoValue.placeholder = 'Список дел...';
    tagSet.textContent = 'Тэги';
+   langSet.textContent = 'Язык';
 }

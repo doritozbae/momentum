@@ -7,6 +7,8 @@ const backgroundImage = document.body;
 const prevSlide = document.querySelector('.slide-prev');
 const nextSlide = document.querySelector('.slide-next');
 
+let pageOption = {'lang': 'EN', 'cityDefault': 'Minsk', 'api': 'github'}; 
+
 function showTime() {
    const today = new Date();
    
@@ -27,7 +29,19 @@ showTime();
 function getTimeOfDay() {
    const today = new Date();
    let hours = today.getHours();
-   
+   if (pageOption.lang === 'RU'){
+    if (hours >= 0 && hours < 6) {
+      greeting.textContent = 'Доброй ночи, ';
+    } else if (hours >= 6 && hours < 12) {
+      greeting.textContent = 'Доброе утро, ';
+    } else if (hours >= 12 && hours < 18) {
+      greeting.textContent = 'Добрый день, ';
+    } else {
+      greeting.textContent = 'Добрый ыечер, ';
+    }
+   }
+
+   else if (pageOption.lang === 'EN') {
    if (hours >= 0 && hours < 6) {
       greeting.textContent = 'Good Night, ';
     } else if (hours >= 6 && hours < 12) {
@@ -37,6 +51,7 @@ function getTimeOfDay() {
     } else {
       greeting.textContent = 'Good Evening, ';
     }
+  }
 }
 
 
@@ -61,7 +76,6 @@ function getLocalStorage() {
 
 // console.log(api)
 // let pageOption = {'lang': 'EN', 'cityDefault': 'Minsk', 'api': 'github'};
- let pageOption = {'lang': 'RU', 'cityDefault': 'Minsk', 'api': 'github'}
 
 
 const settingApi = document.querySelectorAll('.api-settings input[name="api"]');
