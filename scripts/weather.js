@@ -44,10 +44,18 @@ async function getWeather() {
    weatherDescription.textContent = data.weather[0].description;
 
    if (pageOption.lang === 'RU') {
+      if (currentCity.value === 'Minsk') {
+         pageOption.cityDefault = 'Минск';
+         currentCity.value = pageOption.cityDefault;
+         }
      wind.textContent = `Скорость ветра: ${Math.round(data.wind.speed)} m/s`;
      humidity.textContent = `Влажность: ${data.main.humidity}%`;
    }
    else if (pageOption.lang === 'EN') {
+      if (currentCity.value === 'Минск') {
+      pageOption.cityDefault = 'Minsk';
+      currentCity.value = pageOption.cityDefault;
+      }
       wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
       humidity.textContent = `Humidity: ${data.main.humidity}%`;
    }
