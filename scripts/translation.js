@@ -73,6 +73,7 @@ function setEN() {
    tagSet.textContent = 'Tags';
    langSet.textContent = 'Language';
    getQuote();
+   getWeather();
 }
 
 function setRU() {
@@ -116,5 +117,7 @@ const quotesRU = [
  author.textContent =  `${quotesRU[num].author}`;
  rand(first, second);
 
- 
+   getWeather()
+   // wind.textContent = `Скорость ветра: ${Math.round(data.wind.speed)} m/s`;
+   // humidity.textContent = `Влажность: ${data.main.humidity}%`;
 }

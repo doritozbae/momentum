@@ -12,16 +12,17 @@ async function getWeather() {
    let curCity = currentCity.value; 
    // curCity.textContent = city;
    let url; 
-   if (pageOption.lang === 'RU') {
-      url = `https://api.openweathermap.org/data/2.5/weather?q=${curCity}&lang=ru&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
-   }
-   else if (pageOption.lang === 'EN') {
-    url = `https://api.openweathermap.org/data/2.5/weather?q=${curCity}&lang=en&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
-   // const url = `https://api.openweathermap.org/data/2.5/weather?q=Минск&lang=ru&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
-   }
+   url = `https://api.openweathermap.org/data/2.5/weather?q=${curCity}&lang=en&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
+
+   // if (pageOption.lang === 'RU') {
+   //    // url = `https://api.openweathermap.org/data/2.5/weather?q=${curCity}&lang=ru&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
+   // }
+   // else if (pageOption.lang === 'EN') {
+   //  url = `https://api.openweathermap.org/data/2.5/weather?q=${curCity}&lang=en&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
+   // // const url = `https://api.openweathermap.org/data/2.5/weather?q=Минск&lang=ru&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
+   // }
    const res = await fetch(url);
    const data = await res.json(); 
-   // console.log(data.weather[0].id, data.weather[0].description, data.main.temp);
  
    if (!res.ok) {
       if (!curCity) {
@@ -41,9 +42,16 @@ async function getWeather() {
    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
    temperature.textContent = `${Math.round(data.main.temp)}°C`;
    weatherDescription.textContent = data.weather[0].description;
-   wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
-   humidity.textContent = `Humidity: ${data.main.humidity}%`;
-   localStorage.setItem('city', curCity);
+
+   if (pageOption.lang === 'RU') {
+     wind.textContent = `Скорость ветра: ${Math.round(data.wind.speed)} m/s`;
+     humidity.textContent = `Влажность: ${data.main.humidity}%`;
+   }
+   else if (pageOption.lang === 'EN') {
+      wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
+      humidity.textContent = `Humidity: ${data.main.humidity}%`;
+   }
+   // wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
 }
 currentCity.onchange = (e) => getWeather(e.target.value);
 
