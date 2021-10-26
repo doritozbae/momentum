@@ -129,3 +129,31 @@ function toLocal(){
 //  window.addEventListener('load', getLocalStorageTodo)
 
 
+settingTags.forEach(e => {
+   updateTag(e, 'tag');
+   e.addEventListener('click', () => {
+       updateTag(e, 'tag');
+       localStorage.setItem(`${e.id}tag`, e.checked);
+   })
+})
+
+function updateTag(e, type) {
+   let checkout;
+
+   if (type === 'tag') {
+       checkout = localStorage.getItem(`${e.id}${type}`);
+   } 
+   if (checkout === 'false') {
+       e.removeAttribute('checked');
+   }
+   else if (checkout === 'true') {
+       e.setAttribute('checked', 'true');
+   }
+
+   if (localStorage.getItem('api') === 'github' && type === 'tag') {
+       e.removeAttribute('checked');
+       e.setAttribute('disabled', 'true');
+   }
+} 
+updateTag();
+

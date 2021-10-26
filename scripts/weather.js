@@ -37,7 +37,7 @@ async function getWeather() {
       localStorage.setItem('city', curCity);
       return;
   }
-
+// console.log(url); 
    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
    temperature.textContent = `${Math.round(data.main.temp)}°C`;
    weatherDescription.textContent = data.weather[0].description;
@@ -46,6 +46,7 @@ async function getWeather() {
    localStorage.setItem('city', curCity);
 }
 currentCity.onchange = (e) => getWeather(e.target.value);
+
 
 currentCity.addEventListener('change', () => {
    localStorage.setItem('isCityChanged', 'true');

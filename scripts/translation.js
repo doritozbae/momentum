@@ -4,11 +4,16 @@ const settingLanguage = document.querySelectorAll('.language-settings input[name
 document.addEventListener('DOMContentLoaded', () => {
    if (pageOption.lang === 'EN') {
        setEN();
+       
+
    } else if (pageOption.lang === 'RU') {
        setRU();
+       
    }
    settingLanguage.forEach(e => {
    setSetting(e, 'lang');
+   });
+//    getQuote();
 });
 
 
@@ -40,7 +45,7 @@ function setSetting(e, type) {
        });
    }
 }
-})
+// })
 
 const settingText = document.querySelector('.settings-text');
 const timeSet = document.querySelector('.set-time');
@@ -65,6 +70,9 @@ function setEN() {
    todoValue.placeholder = 'Tasks to do...';
    tagSet.textContent = 'Tags';
    langSet.textContent = 'Language';
+   tagSet.textContent = 'Tags';
+   langSet.textContent = 'Language';
+   getQuote();
 }
 
 function setRU() {
@@ -80,4 +88,33 @@ function setRU() {
    todoValue.placeholder = 'Список дел...';
    tagSet.textContent = 'Тэги';
    langSet.textContent = 'Язык';
+
+const quotesRU = [
+    {      
+      quote: 'Начинать всегда стоит с того, что сеет сомнения.',
+      author: 'Борис Стругацкий',
+    },  
+    {      
+       quote: 'Вы никогда не пересечете океан, если не наберетесь мужества потерять берег из виду.',
+       author: 'Христофор Колумб',
+    },
+    {
+       quote: 'Лучшая месть – огромный успех.',
+       author: 'Фрэнк Синатра',
+    },
+    {
+       quote: '  Если внутренний голос говорит вам, что вы не можете рисовать – рисуйте как можно больше, тогда этот голос затихнет.',
+       author: 'Ван Гог',
+    },
+    {
+       quote: ' Есть только один способ избежать критики: ничего не делайте, ничего не говорите и будьте никем.',
+       author: 'Аристотель',
+    }
+  ]
+
+ quote.textContent = `${quotesRU[num].quote}`;
+ author.textContent =  `${quotesRU[num].author}`;
+ rand(first, second);
+
+ 
 }

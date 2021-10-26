@@ -43,7 +43,7 @@ function getTimeOfDay() {
     } else if (hours >= 12 && hours < 18) {
       greeting.textContent = 'Добрый день, ';
     } else {
-      greeting.textContent = 'Добрый ыечер, ';
+      greeting.textContent = 'Добрый вечер, ';
     }
    }
 
@@ -67,9 +67,6 @@ function setLocalStorage() {
  window.addEventListener('beforeunload', setLocalStorage);
 
 function getLocalStorage() {
-   // if (localStorage.getItem('name') === null) {
-   //         username.value = '[Enter Name]';
-   // }
     if(localStorage.getItem('name')) {
      username.value = localStorage.getItem('name');
    }
@@ -90,11 +87,11 @@ const settingTags = document.querySelectorAll('.api-settings input[name="tag"]')
 
 document.addEventListener('DOMContentLoaded', () => {
   settingApi.forEach(e => {
-      setSettingForToggles(e, 'api');
+      settingForToggles(e, 'api');
 })
 
 
-function setSettingForToggles(e, type) {
+function settingForToggles(e, type) {
     e.checked = false;
     e.disabled = false;
 
@@ -102,6 +99,7 @@ function setSettingForToggles(e, type) {
         e.checked = true;
         e.disabled = true;
     }
+
     if (type === 'api') {
       if (!localStorage.getItem('api')) {
         settingApi[0].checked = true;
@@ -180,8 +178,8 @@ function handleApi() {
 
   const imgApi = {
     github: `https://raw.githubusercontent.com/doritozbae/stage1-tasks/assets/images/${currentTimeOfDay}/${currentSlide < 10 ? `0${currentSlide}` : currentSlide}.jpg`,
-    unsplash: `https://api.unsplash.com/photos/random?orientation=landscape&query=${currentTimeOfDay},${tags}&client_id=z0SYtXjEwmbx1uSli2BRTpe9l9Zg2b2321MVTchwAfs`,
-    flickr: `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=945a04a39cec3e1be7d9d9314c050170&tags=${currentTimeOfDay},${tags}&extras=url_l&format=json&nojsoncallback=1`
+    unsplash: `https://api.unsplash.com/photos/random?orientation=landscape&query=${tags}&client_id=z0SYtXjEwmbx1uSli2BRTpe9l9Zg2b2321MVTchwAfs`,
+    flickr: `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=945a04a39cec3e1be7d9d9314c050170&tags=${tags}&extras=url_l&format=json&nojsoncallback=1`
   }
   const apiName = localStorage.getItem('api');
   const api = imgApi[apiName];
