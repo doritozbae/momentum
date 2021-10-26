@@ -36,6 +36,11 @@ const songname = document.querySelector('.songname')
 const more = document.querySelector('.more')
 const player = document.querySelector('.player')
 
+const play1 = document.querySelector('.play1');
+const play2 = document.querySelector('.play2');
+const play3 = document.querySelector('.play3');
+const play4 = document.querySelector('.play4');
+
 const audio = new Audio();
 // audio.load(); 
 let isPlay = false;
@@ -196,3 +201,31 @@ more.addEventListener('click', () => {
    // settingsList.style.display = 'block';
 })
 
+play1.addEventListener('click', () => {
+   currentAudio = 0;
+   miniPlay();
+   play1.classList.toggle('mini-pause');
+})
+play2.addEventListener('click', () => {
+   currentAudio = 1;
+  miniPlay();
+  play2.classList.toggle('mini-pause');
+})
+play3.addEventListener('click', () => {
+   currentAudio = 2;
+   miniPlay();
+   play3.classList.toggle('mini-pause');
+})
+play4.addEventListener('click', () => {
+   currentAudio = 3;
+  miniPlay();
+  play4.classList.toggle('mini-pause');
+})
+
+function miniPlay() {
+   audio.src = playlist[currentAudio].src;
+   if(!isPlay) 
+   isPlay = false;
+   playAudio();
+   playBtn.classList.toggle('pause');
+}
