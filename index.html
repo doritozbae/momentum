@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="css/owfont-regular.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.3.3/i18next.min.js"></script>
+  <title>momentum</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="player huge-playr ">
+      <div class="player-controls">
+        <button class="play-prev player-icon"></button>
+        <button class="play player-icon"></button>
+        <button class="play-next player-icon"></button>
+        <div class="more">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-music-player" viewBox="0 0 16 16">
+            <path d="M4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V3zm1 0v3h6V3H5zm3 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+            <path d="M11 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-3 2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+            <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z"/>
+          </svg>
+        </div>
+        <div class="sound-control">
+          <p class="duration">00:00</p>
+          <p class="songname"></p>
+          <input class="audio-length control-input" min="0" max="100" type="range" >  
+          
+          <p class="current-time">00:00</p>
+         
+          <div class="sound-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-volume-up-fill" viewBox="0 0 16 16">
+              <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
+              <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
+              <path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/>
+            </svg>
+          </div>
+          <input class="sound-progress control-input" min="0" max="100" type="range">  
+        </div>
+
+      </div>
+      <ul class="play-list"></ul>
+    </div>
+    <div class="weather">
+      <input type="text" class="city" placeholder="[Enter city]"> 
+      <i class="weather-icon owf"></i>
+      <div class="weather-error"></div>
+      <div class="description-container">
+        <span class="temperature"></span>
+        <span class="weather-description"></span>
+      </div>
+      <div class="wind"></div>
+      <div class="humidity"></div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+    <time class="time"></time>
+    <date class="date"></date>
+    <div class="greeting-container">
+      <span class="greeting"></span>
+      <input type="text" class="name" placeholder="[Enter name]">
+    </div>
+
+
+
+  </main>
+  <footer class="footer">
+    <button class="change-quote"></button>
+    <div>
+      <div class="quote"></div>
+      <div class="author"></div>
+    </div>
+
+    <div class="settings">
+      <div class="settings-icon">
+        <span class="app-dash toggle" data-test="settings-toggle" data-ob="settings-toggle">
+          <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340.274 340.274">
+            <path
+              d="M293.629 127.806l-5.795-13.739c19.846-44.856 18.53-46.189 14.676-50.08l-25.353-24.77-2.516-2.12h-2.937c-1.549 0-6.173 0-44.712 17.48l-14.184-5.719c-18.332-45.444-20.212-45.444-25.58-45.444h-35.765c-5.362 0-7.446-.006-24.448 45.606l-14.123 5.734C86.848 43.757 71.574 38.19 67.452 38.19l-3.381.105-27.27 26.737c-4.138 3.891-5.582 5.263 15.402 49.425l-5.774 13.691C0 146.097 0 147.838 0 153.33v35.068c0 5.501 0 7.44 46.585 24.127l5.773 13.667c-19.843 44.832-18.51 46.178-14.655 50.032l25.353 24.8 2.522 2.168h2.951c1.525 0 6.092 0 44.685-17.516l14.159 5.758c18.335 45.438 20.218 45.427 25.598 45.427h35.771c5.47 0 7.41 0 24.463-45.589l14.195-5.74c26.014 11 41.253 16.585 45.349 16.585l3.404-.096 27.479-26.901c3.909-3.945 5.278-5.309-15.589-49.288l5.734-13.702c46.496-17.967 46.496-19.853 46.496-25.221V151.88c-.005-5.519-.005-7.446-46.644-24.074zM170.128 228.474c-32.798 0-59.504-26.187-59.504-58.364 0-32.153 26.707-58.315 59.504-58.315 32.78 0 59.43 26.168 59.43 58.315-.006 32.177-26.656 58.364-59.43 58.364z"
+              fill="#FFF"></path>
+          </svg>
+        </span>
+      </div>
+      <div class="settings-list">
+        <p class="settings-list-headerfont settings-text">Settings</p>
+        <div class="settings-container">
+        <div class="settings-content">
+          <div class="settings-left">
+            <p class="settings-list-font set-time">Time</p>
+            <p class="settings-list-font set-date">Date</p>
+            <p class="settings-list-font set-greet">Greeting</p>
+            <p class="settings-list-font set-weather">Weather</p>
+            <p class="settings-list-font set-player">Player</p>
+          </div>
+          <div class="settings-right">
+            <div class="time-switch switch-btn"></div>
+            <div class="date-switch switch-btn"></div>
+            <div class="greeting-switch switch-btn"></div>
+            <div class="weather-switch switch-btn"></div>
+            <div class="player-switch switch-btn"></div>
+
+          </div>
+
+          
+        </div>
+
+        <div class="settings-content-api">
+          <p class="settings-list-font imAp">Image API</p>
+          <div class="api-settings">
+            <input type="radio" name="api" id="github">
+            <label for="github" class="label-github">GitHub</label>
+            <input type="radio" name="api" id="unsplash">
+            <label for="unsplash" class="label-unsplash">Unsplash</label>
+            <input type="radio" name="api" id="flickr">
+            <label for="flickr" class="label-flickr">Flickr</label>
+          </div>
+        </div>
+        <div class="settings-content-api">
+          <p class="settings-list-font tagSet">Tags</p>
+          <div class="api-settings">
+            <input type="radio" name="tag" id="animals">
+            <label for="animals" class="label-animals">animals</label>
+            <input type="radio" name="tag" id="people">
+            <label for="people" class="label-people">people</label>
+            <input type="radio" name="tag" id="city">
+            <label for="city" class="label-city">city</label>
+          </div>
+        </div>
+
+        <div class="settings-content-api">
+          <p class="settings-list-font tagSet">Language</p>
+          <div class="api-settings language-settings">
+              <input type="radio" name="language" id="EN">
+              <label for="EN" class="EN">EN</label>
+              <input type="radio" name="language" id="RU">
+              <label for="RU" class="RU">RU</label>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="todo-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+        <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+      </svg>
+    </div>
+    <div class="todo-list">
+      <div class="todo-content">
+        <input class="todo-input" type="text" placeholder="Tasks to do...">
+        <button class="push" onkeypress="enterTask(event)">
+          <svg style="color:white; margin-top: 4px; width: 20px;height: 20px;" xmlns="http://www.w3.org/2000/svg"
+            width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+          </svg>
+        </button>
+      </div>
+      
+      <div class="tasks" id="tasks"></div>
+    </div>
+  </footer>
+
+
+  <!-- время, дата, приветствие, цитата дня, прогноз погоды, аудиоплеер, 
+ список дел/список  -->
+
+  <!-- <script src="js/script.js"></script> -->
+  <script src="scripts/date_time.js"></script>
+  <script src="scripts/weather.js"></script>
+  <script src="scripts/quotes.js"></script>
+  <!-- <script type="module" src="scripts/audio.js"></script> -->
+  <script src="scripts/audio.js"></script>
+  <script src="scripts/settings.js"></script>
+  <script src="scripts/playlist.js"></script>
+  <script src="scripts/translation.js"></script>
+</body>
+
+</html>
